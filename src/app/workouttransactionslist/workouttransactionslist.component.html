@@ -1,0 +1,42 @@
+<div class='panel panel-primary'>
+ <div class='panel-heading'>
+        {{pageTitle + ': ' + title}}
+    </div>
+    <div class='panel-body'>
+           
+        <div class='table-responsive'>
+            <table class='table' *ngIf='workoutTransactions && workoutTransactions.length'>
+                <thead>
+                    <tr>
+                       
+                        <th>TxnId</th>
+                        <th>Start Time</th>
+                        <th>Stop Time</th>
+                        <th>Duration</th>
+                        <th>CalsBurnt</th>
+                                             
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let workoutTransaction of workoutTransactions'>
+                        <td>
+                            {{ workoutTransaction.txnId }}
+                        </td>
+                        <td> {{ workoutTransaction.startTime }}
+						</td>
+                        <td> {{ workoutTransaction.stopTime }}</td>
+                        <td>{{ workoutTransaction.duration }}</td>
+                        <td>{{ workoutTransaction.calsBurnt }}</td>
+                        </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div *ngIf='errorMessage' class='alert alert-danger'>
+    Error: {{ errorMessage }}
+</div>
+<div class="form-group">
+         <button  class="btn btn-primary" (click)="back();">Back</button> 
+            <button  class="btn btn-primary" (click)="newWorkouttrans();">New WorkoutTras</button>              
+</div>
